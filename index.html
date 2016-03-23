@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="javascript/jquery-2.1.4.min.js"></script>
+    <script src="javascript/angular.min.js"></script>
+    <script src="javascript/script.js"></script>
+    <title></title>
+</head>
+<body >
+<div >
+    <div id="container">
+        <div id ="requirement1">
+            <label for="" id="entry-requirements">Entry Requirements</label>
+            <select name="entry1" id="entry-requirement-select1">
+                <option value="13" selected="selected">UEC</option>
+                <option value="14">SPM</option>
+                <option value="15">O LEVEL</option>
+                <option value="16">IB</option>
+                <option value="17">Foundation Programme</option>
+                <option value="18">Diploma Programme</option>
+                <option value="19">A LEVEL </option>
+                <option value="20">STPM</option>
+                <option value="21">TOEFL</option>
+                <option value="22">IELTS</option>
+                <option value="23">GCE</option>
+                <option value="24">Average score</option>
+            </select>
+            <label for="" id="your-grades">Your grades/expected grades?</label>
+            <input type="text" id="grades1">
+    
+            <br>
+        
+        </div>
+
+    </div>
+    <button type="submit" onclick="InsertRequirement()">+</button>
+    <button type="submit" onclick="RemoveRequire()">-</button>
+    <button type="submit" onclick="Search()">Search</button>
+</div>
+
+<h4 id="ketqua"></h4>
+</body>
+</html>
