@@ -54,21 +54,25 @@ if(isset($_POST['data'])){
          	while ($row2 = mysql_fetch_array($query2,MYSQL_ASSOC)) {
 
          		array_push($arr_result,$row2);
-         		var_dump($row2['name_uni']);
+         		echo "School: ";
+         		print_r($row2['name_uni']);
          		echo "</br>";
          		if ($row2['uni_id'] == $arr_uni[$i]['uni_id']) {
          			# code...
-         			var_dump($arr_uni[$i]['course_id']);
-         			echo "+";
-         			echo $arr_uni[$i]['name_course'];
+         			
+         			echo "+ Course: ";
+         			print_r($arr_uni[$i]['name_course']);
          			echo "<br>";
+         			echo "+ Level: ";
+         			print_r($arr_uni[$i]['level_name']);
+         			echo "<br>";
+         			echo "+ Group: ";
+         			print_r($arr_uni[$i]['group_name']);
+         			echo "<br>";
+
          		}
          		// if ($arr_uni[$i][]==) {
-         		// 	# code...
-         		// }
-         		// var_dump($row2['name_uni']);
-         		// echo $row2['name_uni'];
-         		// echo '</br>';
+         
          	}
          	
         }
