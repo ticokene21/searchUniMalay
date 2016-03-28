@@ -7,23 +7,11 @@ if(isset($_POST['data'])){
     // echo '-------------';
     // print_r(json_decode($_POST['data']));
     // echo '-------------';
-    $arr_val = json_decode($_POST['data']);//Bắt dữ liệu json bên ajax vào chuyển thàng kiểu array()
+    $arr_val = json_decode($_POST['data']);//
     $arr_course = array();
     $arr_uni = array();
     $arr_result = array();
-  	$n = 0;
-    // var_dump($_POST['data']);
-    
-
-    // echo count($arr_val);
-//	echo count($arr_val);
-  //   $sql="select * from cou_req";
- 	// $query=mysql_query($sql);
- 	// if(mysql_num_rows($query) == 0){
-  //       echo "Chua co du lieu";
-  //   }
-  //   else{
-  //       $row=mysql_fetch_array($query)
+  
         for($i = 0;$i<count($arr_val);$i++)
 		{
 			if($arr_val[$i]->req_id == 21)
@@ -42,43 +30,49 @@ if(isset($_POST['data'])){
 		     
 		    }
 		}	
-		
+
 		$arr_course = array_values(array_unique($arr_course));
-		var_dump($arr_course);
-		// var_dump($arr_course);
-		// while ($n <= count($arr_course)) {
-		// 	if (isset($arr_course[$n])) {
-		// 		$sql1= "select DISTINCT uni_id from course where course_id={$arr_course[$n]}";
-  //      	// 	// echo $arr_course[$i];
-	 //       	 	$query1 = mysql_query($sql1);
-	 //       	 	while ($row1 = mysql_fetch_array($query1,MYSQL_ASSOC)) {
-	 //       	 		array_push($arr_uni,$row1['uni_id']);		
-		// 		}
-		// 	}
-		// 	$n++;
-		// }
-//		echo $arr_course;
+		
+
         for ($i=0; $i < count($arr_course) ; $i++) {
        	 	$sql1= "select DISTINCT * from course where course_id={$arr_course[$i]}";
        	 	$query1 = mysql_query($sql1);
        	 	while ($row1 = mysql_fetch_array($query1,MYSQL_ASSOC)) {
-       	 		array_push($arr_uni,$row1['uni_id']['name_course']);
-
+       	 		array_push($arr_uni,$row1);
         	}
        	}
 
 
-       	$arr_uni = array_values(array_unique($arr_uni));
-
+       	// $arr_uni = array_values(array_unique($arr_uni));
+    	
         for ($i=0; $i < count($arr_uni) ; $i++) {
-         	$sql2 = "select DISTINCT* from uni where uni_id ={$arr_uni[$i]}";
+
+         	$sql2 = "select DISTINCT* from uni where uni_id ={$arr_uni[$i]['uni_id']}";
          	$query2 = mysql_query($sql2);
+         	// echo $arr_uni[$i]['name_course'];
+         	// echo "</br>";
          	while ($row2 = mysql_fetch_array($query2,MYSQL_ASSOC)) {
+
+         		array_push($arr_result,$row2);
+         		var_dump($row2['name_uni']);
+         		echo "</br>";
+         		if ($row2['uni_id'] == $arr_uni[$i]['uni_id']) {
+         			# code...
+         			var_dump($arr_uni[$i]['course_id']);
+         			echo "+";
+         			echo $arr_uni[$i]['name_course'];
+         			echo "<br>";
+         		}
+         		// if ($arr_uni[$i][]==) {
+         		// 	# code...
+         		// }
          		// var_dump($row2['name_uni']);
-         		echo $row2['name_uni'];
-         		echo '</br>';
+         		// echo $row2['name_uni'];
+         		// echo '</br>';
          	}
+         	
         }
+
 
         
         
