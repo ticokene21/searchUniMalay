@@ -1,5 +1,6 @@
 label{}
 select{}
+#btn-group1{clear: both}
 #entry-requirements{
 	position: relative;
 	top: 0px;
@@ -8,7 +9,7 @@ select{}
 #your-grades{
 	position: relative;
 	top: 0px;
-	left: 7%;
+	left: 9%;
 }
 #select-subject{
 	float: left;
