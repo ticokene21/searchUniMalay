@@ -1,5 +1,8 @@
 label{}
 select{}
+/*.reuirement-select{*/
+    /*float:left;*/
+/*}*/
 #btn-group1{clear: both}
 #entry-requirements{
 	position: relative;

@@ -58,6 +58,7 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
             $scope.itemreq = data[0];
             $scope.itemsub = data[1];
             $scope.itemscore = data[2];
+            console.log(data)
 
         }).error(function(data){
             console.log(data);

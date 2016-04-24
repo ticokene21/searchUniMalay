@@ -32,7 +32,7 @@
                 'sub_name' => $row1['sub_name'],
                 'short_name' => $row1['short_name'],
                 'req_id' => $row1['req_id'],
-                'cat_id' => $row1['cat_id'],
+                'cat' => $row1['cat'],
             );
         }
     }

@@ -29,6 +29,7 @@ function test($string)
 	array_pop($b);
 	return $b;
 }
+
 require_once('DB_driver.php');
 $conn = new DB_driver();
 $conn->open_connect();
@@ -101,6 +102,7 @@ if(isset($_POST['data'])){
 		}
 	}
 	//End function query data input in database
+
 	$arr_scoReq = json_decode(json_encode($arr_scoReq));
 	$arr_scoNum = [];
 	$arr_scoOpera = [];
@@ -125,20 +127,25 @@ if(isset($_POST['data'])){
 
 		}
 	}
-	// get cou_id
+//
+//	print_r($arr_scoNum);
+	// Function check and or as way for compare between arr_number and arr_opera. Get cou_id if arr_number into item of arr_opera
 	foreach($arr_scoNum as $scoNum){
-		foreach($scoNum['arr_opera'] as $key=>$arr_opera )
+		foreach($scoNum['arr_opera'][0] as $arr_opera )
 		{
 			if($arr_opera != null)
 			{
-				$combera = in_array($scoNum['arr_number'],$arr_opera);
-				if($combera == true){
+				sort($scoNum['arr_number']);
+				$combera = array_diff($arr_opera,$scoNum['arr_number']);
+//				print_r($combera);
+				if($combera == null){
 					array_push($arr_couidUni,$scoNum['cou_id']);
 				}
 			}
 		}
 	}
-
+	$arr_couidUni = array_unique($arr_couidUni);
+	// Display university and courese
 	ob_start();
 	echo "<table>";
 	echo "<tr>";

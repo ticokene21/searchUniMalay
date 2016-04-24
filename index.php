@@ -21,8 +21,8 @@
                     <div class="reuirement-select">
                         <select id="entry-requirement-select{{$index}}" ng-options="req as req.req_name for req in itemreq track by req.req_id" ng-model="arr.listreq" ng-change="ChangeSelectReq($index,arr.listreq)"></select>
                     </div>
-                    <div id="input-subject" ">
-                        <div id="subject-select" ng-repeat="sub in arr.listreq.listsub">
+                    <div id="input-subject">
+                        <div class="subject-select" ng-repeat="sub in arr.listreq.listsub">
                             <select id="entry-subject-select{{$index}}" ng-options="sub as sub.sub_name for sub in arr.subOfReq track by sub.sub_id" ng-model="sub" ng-change="ChangeSelectSub($parent.$index,$index,sub)"></select>
 
                             <select id="entry-score-select{{$index}}" ng-options="sco as sco.sign for sco in arr.scoreOfSub track by sco.score_id" ng-model="sub.score" ng-change="ChangeSelectScore($parent.$index,$index,sub.score)"></select>
