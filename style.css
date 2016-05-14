@@ -1,5 +1,17 @@
 label{}
-select{}
+.entry-subject-select{
+    width: 300px;
+}
+.subject-select{
+    margin-bottom: 10px;
+}
+.entry-requirement-select{
+    width: 100%;
+    margin-bottom: 10px ;
+}
+.entry-score-select{
+    width: 50px;
+}
 /*.reuirement-select{*/
     /*float:left;*/
 /*}*/

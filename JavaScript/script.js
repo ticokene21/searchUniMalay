@@ -12,14 +12,10 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
     $scope.arrData = [{
         listreq:{
             listsub:[{
+                sub_id: "0",
                 score:{},
             }],
-
-        },
-        gradeA: "",
-        gradeB: "",
-        gradeC: "",
-        gradeD: "",
+        }
     }];
     $scope.arrInput = [
         {
@@ -27,28 +23,31 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
                     req_id: "",
                     req_name: "",
                     listsub: [{
-                        sub_id: "",
+                        sub_id: null,
                         sub_name: "",
                         short_name: "",
                         req_id: "",
-                        cat_id: "",
+                        cat: "",
                     }],
                     score: [{
-                        score_id: "",
-                        sign: "",
-                        grade: "",
-                        point: "",
-                        req_id: ""
+                        score_id: null,
+                        sign: null,
+                        grade: null,
+                        point: null,
+                        req_id: null
                     }],
-
+                    //scoreEnglish: [{
+                    //    overall: null,
+                    //    writing: null,
+                    //    listening: null,
+                    //    reading: null,
+                    //    speaking: null,
+                    //}],
+                    countsub: 0
                 },
             subOfReq:[],
             scoreOfSub:[],
-            gradeA: "",
-            gradeB: "",
-            gradeC: "",
-            gradeD: "",
-            inp:"",
+            //inp:"",
         }
     ];
 
@@ -65,6 +64,16 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
         });
 
     };
+    $scope.SetOption = function(s,option){
+        console.log(option);
+        if(option == 0){
+            $scope.arrData[s].listreq.option = 1;
+            $scope.arrInput[s].listreq.option = 1;
+        }else{
+            $scope.arrInput[s].listreq.option = 0;
+            $scope.arrData[s].listreq.option = 0;
+        }
+    };
     //Function set value subject when input select subject
     $scope.ChangeSelectSub = function(s,s1,subitem){
 
@@ -78,29 +87,23 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
         console.log($scope.arrData)
     };
     //function Insert field input sub and score
-    $scope.InsertSubScore = function(s,item){
-        var sub ={
-            sub_id: "",
-            sub_name: "",
-            short_name: "",
-            req_id: "",
-            cat_id: "",
-            score : {
-                score_id: "",
-                sign: "",
-                grade: "",
-                point: "",
-                req_id: ""
+    $scope.InsertSubScore = function(s,item) {
+        var sub = {
+            sub_id: null,
+            sub_name: null,
+            short_name: null,
+            req_id: null,
+            cat: null,
+            score: {
+                score_id: null,
+                sign: null,
+                grade: null,
+                point: null,
+                req_id: null
             },
         };
-
-
         $scope.arrData[s].listreq.listsub.push(sub);
-
-
-        console.log($scope.arrData[s])
     };
-    //Remove sub and score
     $scope.RemoveSubScore = function(s,item){
 
         $scope.arrData[s].listreq.listsub.splice($scope.arrData[s].listreq.listsub.length -1,1);
@@ -109,27 +112,37 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
 
 
     $scope.ChangeSelectReq = function(s,item){
+        //$scope.arrInput[s].listreq.option = $scope.arrData[s].listreq.option;
         $scope.arrInput[s].listreq.listsub = [{
-            sub_id: "",
-            sub_name: "",
-            short_name: "",
-            req_id: "",
-            cat_id: "",
+            sub_id: null,
+            sub_name: null,
+            short_name: null,
+            req_id: null,
+            cat: null,
             score : {
-                score_id: "",
-                sign: "",
-                grade: "",
-                point: "",
-                req_id: ""
+                score_id: null,
+                sign: null,
+                grade: null,
+                point: null,
+                req_id: null
+            },
+            scoreEnglish: {
+                overall: null,
+                writing: null,
+                listening: null,
+                reading: null,
+                speaking: null,
             }
         }];
 
         $scope.arrInput[s].subOfReq =[];
         $scope.arrInput[s].scoreOfSub=[];
-        console.log()
+
         angular.forEach($scope.itemsub, function (value, key) {
             if (value.req_id == item.req_id)
+            {
                 $scope.arrInput[s].subOfReq.push(value);
+            }
         });
         angular.forEach($scope.itemscore, function (value, key) {
             if (value.req_id == item.req_id)
@@ -137,6 +150,7 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
         });
 
         $scope.arrData[s].listreq = item;
+        $scope.arrData[s].listreq.countsub = 0;
 
 
     };
@@ -144,43 +158,44 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
     $scope.InsertRequirement = function(){
         d = {
             listreq: {
-                req_id: "",
-                req_name: "",
+                req_id: null,
+                req_name: null,
                 listsub: [{
-                    sub_id: "",
-                    sub_name: "",
-                    short_name: "",
-                    req_id: "",
-                    cat_id: "",
+                    sub_id: null,
+                    sub_name: null,
+                    short_name: null,
+                    req_id: null,
+                    cat: null,
                     score: {
-                        score_id: "",
-                        sign: "",
-                        grade: "",
-                        point: "",
-                        req_id: ""
+                        score_id: null,
+                        sign: null,
+                        grade: null,
+                        point: null,
+                        req_id: null
+                    },
+                    scoreEnglish: {
+                        overall: null,
+                        writing: null,
+                        listening: null,
+                        reading: null,
+                        speaking: null,
                     }
                 }],
-
+                countsub: 0
             },
             subOfReq:[],
-            scoreOfSub:[],
-            gradeA: "",
-            gradeB: "",
-            gradeC: "",
-            gradeD: "",
-            inp:""
+            inp:null
         };
         d1 = {
             listreq:{
                 listsub:{
+                    sub_id: null,
                     score:{},
+                    scoreEnglish:{}
                 },
 
             },
-            gradeA: "",
-            gradeB: "",
-            gradeC: "",
-            gradeD: ""
+
         }
         $scope.arrInput.push(d);
         $scope.arrData.push(d1);
@@ -193,18 +208,14 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
     };
 
     $scope.Search = function(){
-        console.log($scope.arrData)
         var d = JSON.stringify($scope.arrData);
-        console.log(d)
-
-        console.log($.param({"data": d}))
+        //console.log($.param({"data": d}))
         var request = $http({
             method: "post",
             url: 'myphp/Search.php',
             data: $.param({"data": d}),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).success(function(data){
-
             $("#kq").html(data.fragment);
         }).error(function(data){
             console.log(data)
