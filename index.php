@@ -35,17 +35,19 @@
                         <div class="subject-select" ng-repeat="sub in arr.listreq.listsub">
                             <select class="entry-subject-select" ng-options="sub as sub.sub_name for sub in arr.subOfReq track by sub.sub_id" ng-model="sub" ng-change="ChangeSelectSub($parent.$index,$index,sub)"></select>
 <!--                            <div ng-if="arr.listreq.option == 0">OR Any: <input style="width: 50px" type="number"></div>-->
+                            <div>
                             Grade:<select class="entry-score-select" ng-options="sco as sco.sign for sco in arr.scoreOfSub track by sco.score_id" ng-model="sub.score" ng-change="ChangeSelectScore($parent.$index,$index,sub.score)"></select>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4" ng-if="arr.listreq.input_type== 4">
-                        <div class="subject-select" ng-repeat="sub in arr.listreq.listsub" >
-                            <div class="row">
-                                <div class="col-md-2">Point: <input style="width: 50px" type="number" ng-model="sub.scoreEnglish.overall" ng-init="sub.scoreEnglish.overall = 0" ></div>
                             </div>
+
                         </div>
                     </div>
+<!--                    <div class="col-md-4" ng-if="arr.listreq.input_type== 4">-->
+<!--                        <div class="subject-select">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-md-2">Point: <input style="width: 50px" type="number" ng-model="sub.scoreEnglish.overall" ng-init="sub.scoreEnglish.overall = 0" ></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="col-md-4" ng-if="arr.listreq.input_type == 2 " >
                         <div class="subject-select" ng-repeat="sub in arr.listreq.listsub">
                             <select class="entry-subject-select" ng-options="sub as sub.sub_name for sub in arr.subOfReq track by sub.sub_id" ng-model="sub" ng-change="ChangeSelectSub($parent.$index,$index,sub)"></select>
@@ -57,8 +59,8 @@
                                 <div class="col-md-2">Reading: <input style="width: 50px" type="number" ng-model="sub.scoreEnglish.reading" ng-init="sub.scoreEnglish.reading = 0"></div>
                                 <div class="col-md-2">Speaking: <input style="width: 50px" type="number" ng-model="sub.scoreEnglish.speaking" ng-init="sub.scoreEnglish.speaking = 0"></div>
                             </div>
-                            <div class="row" ng-if="arr.listreq.req_id ==6" >
-                                <div class="col-md-2">Grade: <input style="width: 50px" type="number" ng-model="sub.scoreEnglish.overall" ng-init="sub.scoreEnglish.overall = 0" ></div>
+                            <div class="row" ng-if="arr.listreq.req_id ==11" >
+                                <div class="col-md-8">Grade: <input style="width: 50px" type="number" ng-model="sub.scoreEnglish.overall" ng-init="sub.scoreEnglish.overall = 0 && sub.scoreEnglish.writing = 0 && sub.scoreEnglish.listening = 0 && sub.scoreEnglish.reading = 0 && sub.scoreEnglish.speaking = 0 " > {{sub.unit}}</div>
                             </div>
                         </div>
                     </div>
@@ -77,7 +79,7 @@
 
 </div>
 
-<div>
+<div ng-if="vm.items != null">
     <table>
         <tr>
             <th>Course</th>

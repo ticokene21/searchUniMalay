@@ -51,6 +51,7 @@ class CouReq
                     'short_name' => $row1['short_name'],
                     'req_id' => $row1['req_id'],
                     'cat' => $row1['cat'],
+                    'unit' => $row1['unit']
                 );
             }
         }
@@ -81,7 +82,10 @@ class CouReq
 
                     foreach($req->listreq->listsub as $sub)
                     {
-                        $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} and writing <= {$sub->scoreEnglish->writing} and listening <= {$sub->scoreEnglish->listening} and reading <= {$sub->scoreEnglish->reading} and speaking <= {$sub->scoreEnglish->speaking}  ";
+                        if($req->listreq->req_id == 7)
+                            $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} and writing <= {$sub->scoreEnglish->writing} and listening <= {$sub->scoreEnglish->listening} and reading <= {$sub->scoreEnglish->reading} and speaking <= {$sub->scoreEnglish->speaking}  ";
+                        else
+                            $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} ";
                         $query = mysql_query($sql);
                         if(mysql_num_rows($query) > 0) {
                             while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
@@ -141,8 +145,10 @@ class CouReq
                 if ($req->listreq->input_type == 2) {
 
                     foreach ($req->listreq->listsub as $sub) {
-
-                        $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} and writing <= {$sub->scoreEnglish->writing} and listening <= {$sub->scoreEnglish->listening} and reading <= {$sub->scoreEnglish->reading} and speaking <= {$sub->scoreEnglish->speaking}  ";
+                        if($req->listreq->req_id == 7)
+                            $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} and writing <= {$sub->scoreEnglish->writing} and listening <= {$sub->scoreEnglish->listening} and reading <= {$sub->scoreEnglish->reading} and speaking <= {$sub->scoreEnglish->speaking}  ";
+                        else
+                            $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} ";
                         $query = mysql_query($sql);
                         if (mysql_num_rows($query) > 0) {
                             while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
