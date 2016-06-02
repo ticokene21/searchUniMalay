@@ -7,9 +7,14 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
     $scope.itemreq = [];
     $scope.itemsub = [];
     $scope.itemscore = [];
+    $scope.itemlevel ={};
+    $scope.itemgroup = {};
     $scope.arr_univer = [];
     $scope.b = [];
     $scope.vm = [];
+    $scope.requirement = {};
+    $scope.level = {};
+    $scope.group = {};
     //$scope_LoadCourseID = function() {
     //
     //    $http.get("myphp/uni.php").success(function (data) {
@@ -155,8 +160,10 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
             $scope.itemreq = data[0];
             $scope.itemsub = data[1];
             $scope.itemscore = data[2];
-            console.log(data)
-
+            $scope.itemgroup = data[3];
+            $scope.itemlevel = data[4];
+            $scope.level = $scope.itemlevel[0];
+            $scope.group = $scope.itemgroup[0];
         }).error(function(data){
             console.log(data);
         });
@@ -309,16 +316,22 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
         $http({
             method:"post",
             url:'myphp/uni.php',
-            data: $.param({"data":$scope.result }),
+            data: $.param({"data":$scope.result,"level":JSON.stringify($scope.level),"group":JSON.stringify($scope.group)}),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded',"Accept" : "application/json"}
 
         }).success(function(data){
             //$scope.arr_univer = data;
+            //data.entry_requirements = $sce.trustAsHtml(data.entry_requirements);
+            //console.log(data)
+
             ExampleController(data);
+
+            console.log()
         }).error(function(data){
             console.log(data)
         });
     }
+
 
     $scope.Update = function(){
         var d = JSON.stringify($scope.arrData);
@@ -331,7 +344,7 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
         var request = $http({
             method: "post",
             url: url,
-            data: $.param({"data": d,"arr_result":$scope.result }),
+            data: $.param({"data": d,"arr_result":$scope.result}),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).success(function(data){
             $scope.result = JSON.stringify(data);
@@ -343,6 +356,7 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
 
     $scope.Search = function(){
         var d = JSON.stringify($scope.arrData);
+
         console.log(d)
         var request = $http({
             method: "post",
@@ -351,7 +365,6 @@ UniSearchApp.controller('SearchUni', function ($scope,$http) {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).success(function(data){
             $scope.result = JSON.stringify(data);
-            console.log($scope.result)
             $scope.loadCourseUni();
         }).error(function(data){
             console.log(data)

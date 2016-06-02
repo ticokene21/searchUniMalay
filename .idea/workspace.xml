@@ -25,7 +25,7 @@
       <file leaf-file-name="Search.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myphp/Search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384">
+            <state vertical-scroll-proportion="0.0">
               <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
               <folding />
             </state>
@@ -35,7 +35,7 @@
       <file leaf-file-name="Update.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myphp/Update.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769">
+            <state vertical-scroll-proportion="0.0">
               <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
               <folding>
                 <element signature="e#6#86#0#PHP" expanded="true" />
@@ -47,8 +47,18 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.5">
-              <caret line="62" column="306" selection-start-line="62" selection-start-column="306" selection-end-line="62" selection-end-column="306" />
+            <state vertical-scroll-proportion="-46.423077">
+              <caret line="92" column="27" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -58,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/JavaScript/script.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+              <caret line="318" column="47" selection-start-line="318" selection-start-column="47" selection-end-line="318" selection-end-column="121" />
               <folding />
             </state>
           </provider>
@@ -67,25 +77,29 @@
       <file leaf-file-name="CouReq.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myphp/object/CouReq.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.029259896">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.61445785">
+              <caret line="249" column="61" selection-start-line="249" selection-start-column="61" selection-end-line="249" selection-end-column="61" />
               <folding>
-                <marker date="1464542972638" expanded="true" signature="753:778" placeholder="select * fro..requirement..." />
-                <marker date="1464542972638" expanded="true" signature="834:855" placeholder="select * fro..subject..." />
-                <marker date="1464542972638" expanded="true" signature="913:938" placeholder="select * fro..scorestruct..." />
-                <marker date="1464542972638" expanded="true" signature="2827:3114" placeholder="select * fro..cou_req..." />
-                <marker date="1464542972638" expanded="true" signature="3214:3316" placeholder="select * fro..cou_req..." />
-                <marker date="1464542972638" expanded="true" signature="3214:3346" placeholder="select * fro..cou_req..." />
-                <marker date="1464542972638" expanded="true" signature="3851:3926" placeholder="select * fro..cou_req..." />
-                <marker date="1464542972638" expanded="true" signature="4429:4514" placeholder="select score..scorestruct..." />
-                <marker date="1464542972638" expanded="true" signature="4868:4989" placeholder="select cou_i..cou_req..." />
-                <marker date="1464542972638" expanded="true" signature="6199:6486" placeholder="select * fro..cou_req..." />
-                <marker date="1464542972638" expanded="true" signature="6586:6688" placeholder="select * fro..cou_req..." />
-                <marker date="1464542972638" expanded="true" signature="7225:7300" placeholder="select * fro..cou_req..." />
-                <marker date="1464542972638" expanded="true" signature="7804:7889" placeholder="select score..scorestruct..." />
-                <marker date="1464542972638" expanded="true" signature="8292:8430" placeholder="select * fro..cou_req..." />
-                <marker date="1464542972638" expanded="true" signature="9363:9399" placeholder="select * fro..course..." />
-                <marker date="1464542972638" expanded="true" signature="9787:9827" placeholder="select * fro..university..." />
+                <marker date="1464841256634" expanded="true" signature="813:838" placeholder="select * fro..requirement..." />
+                <marker date="1464841256634" expanded="true" signature="894:915" placeholder="select * fro..subject..." />
+                <marker date="1464841256634" expanded="true" signature="973:998" placeholder="select * fro..scorestruct..." />
+                <marker date="1464841256634" expanded="true" signature="1056:1081" placeholder="select * fro..groupcourse..." />
+                <marker date="1464841256634" expanded="true" signature="1139:1164" placeholder="select * fro..levelcourse..." />
+                <marker date="1464841256634" expanded="true" signature="3815:4102" placeholder="select * fro..cou_req..." />
+                <marker date="1464841256634" expanded="true" signature="4202:4304" placeholder="select * fro..cou_req..." />
+                <marker date="1464841256634" expanded="true" signature="4202:4334" placeholder="select * fro..cou_req..." />
+                <marker date="1464841256634" expanded="true" signature="4845:4920" placeholder="select * fro..cou_req..." />
+                <marker date="1464841256634" expanded="true" signature="5437:5522" placeholder="select score..scorestruct..." />
+                <marker date="1464841256634" expanded="true" signature="5876:5997" placeholder="select cou_i..cou_req..." />
+                <marker date="1464841256634" expanded="true" signature="7293:7602" placeholder="select * fro..cou_req..." />
+                <marker date="1464841256634" expanded="true" signature="7710:7749" placeholder="select * fro..cou_req..." />
+                <marker date="1464841256634" expanded="true" signature="7710:7834" placeholder="select * fro..cou_req..." />
+                <marker date="1464841256634" expanded="true" signature="8428:8503" placeholder="select * fro..cou_req..." />
+                <marker date="1464841256634" expanded="true" signature="9021:9106" placeholder="select score..scorestruct..." />
+                <marker date="1464841256634" expanded="true" signature="9509:9647" placeholder="select * fro..cou_req..." />
+                <marker date="1464841256634" expanded="true" signature="11161:11197" placeholder="select * fro..course..." />
+                <marker date="1464841256634" expanded="true" signature="11161:11208" placeholder="select * fro..course..." />
+                <marker date="1464841256634" expanded="true" signature="12595:12635" placeholder="select * fro..university..." />
               </folding>
             </state>
           </provider>
@@ -94,8 +108,8 @@
       <file leaf-file-name="initconnectdata.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myphp/initconnectdata.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308">
-              <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -118,7 +132,6 @@
       <list>
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/myphp/subject.php" />
-        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/myphp/Combinatorics.php" />
         <option value="$PROJECT_DIR$/myphp/CourseUni.php" />
         <option value="$PROJECT_DIR$/myphp/DB_driver.php" />
@@ -127,9 +140,10 @@
         <option value="$PROJECT_DIR$/myphp/Update.php" />
         <option value="$PROJECT_DIR$/myphp/uni.php" />
         <option value="$PROJECT_DIR$/myphp/initconnectdata.php" />
+        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/JavaScript/script.js" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/myphp/object/CouReq.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -191,56 +205,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Malaysia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Malaysia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myphp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Malaysia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Malaysia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myphp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="object" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Malaysia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Malaysia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaScript" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -407,22 +375,26 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="91" column="54" selection-start-line="91" selection-start-column="54" selection-end-line="91" selection-end-column="54" />
           <folding>
-            <marker date="1464542972638" expanded="true" signature="753:778" placeholder="select * fro..requirement..." />
-            <marker date="1464542972638" expanded="true" signature="834:855" placeholder="select * fro..subject..." />
-            <marker date="1464542972638" expanded="true" signature="913:938" placeholder="select * fro..scorestruct..." />
-            <marker date="1464542972638" expanded="true" signature="2827:3114" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="3214:3316" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="3214:3346" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="3851:3926" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="4429:4514" placeholder="select score..scorestruct..." />
-            <marker date="1464542972638" expanded="true" signature="4868:4989" placeholder="select cou_i..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="6199:6486" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="6586:6688" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="7225:7300" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="7804:7889" placeholder="select score..scorestruct..." />
-            <marker date="1464542972638" expanded="true" signature="8292:8430" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="9363:9399" placeholder="select * fro..course..." />
-            <marker date="1464542972638" expanded="true" signature="9787:9827" placeholder="select * fro..university..." />
+            <marker date="1464841256634" expanded="true" signature="813:838" placeholder="select * fro..requirement..." />
+            <marker date="1464841256634" expanded="true" signature="894:915" placeholder="select * fro..subject..." />
+            <marker date="1464841256634" expanded="true" signature="973:998" placeholder="select * fro..scorestruct..." />
+            <marker date="1464841256634" expanded="true" signature="1056:1081" placeholder="select * fro..groupcourse..." />
+            <marker date="1464841256634" expanded="true" signature="1139:1164" placeholder="select * fro..levelcourse..." />
+            <marker date="1464841256634" expanded="true" signature="3815:4102" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="4202:4304" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="4202:4334" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="4845:4920" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="5437:5522" placeholder="select score..scorestruct..." />
+            <marker date="1464841256634" expanded="true" signature="5876:5997" placeholder="select cou_i..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="7293:7602" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="7710:7749" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="7710:7834" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="8428:8503" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="9021:9106" placeholder="select score..scorestruct..." />
+            <marker date="1464841256634" expanded="true" signature="9509:9647" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="11161:11197" placeholder="select * fro..course..." />
+            <marker date="1464841256634" expanded="true" signature="11161:11208" placeholder="select * fro..course..." />
+            <marker date="1464841256634" expanded="true" signature="12595:12635" placeholder="select * fro..university..." />
           </folding>
         </state>
       </provider>
@@ -704,13 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myphp/Combinatorics.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="45.115383">
@@ -728,15 +693,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myphp/initconnectdata.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myphp/Search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myphp/Update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
           <folding>
             <element signature="e#6#86#0#PHP" expanded="true" />
@@ -744,18 +717,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myphp/Search.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        <state vertical-scroll-proportion="-46.423077">
+          <caret line="92" column="27" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.5">
-          <caret line="62" column="306" selection-start-line="62" selection-start-column="306" selection-end-line="62" selection-end-column="306" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -763,32 +736,36 @@
     <entry file="file://$PROJECT_DIR$/JavaScript/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+          <caret line="318" column="47" selection-start-line="318" selection-start-column="47" selection-end-line="318" selection-end-column="121" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myphp/object/CouReq.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.029259896">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.61445785">
+          <caret line="249" column="61" selection-start-line="249" selection-start-column="61" selection-end-line="249" selection-end-column="61" />
           <folding>
-            <marker date="1464542972638" expanded="true" signature="753:778" placeholder="select * fro..requirement..." />
-            <marker date="1464542972638" expanded="true" signature="834:855" placeholder="select * fro..subject..." />
-            <marker date="1464542972638" expanded="true" signature="913:938" placeholder="select * fro..scorestruct..." />
-            <marker date="1464542972638" expanded="true" signature="2827:3114" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="3214:3316" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="3214:3346" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="3851:3926" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="4429:4514" placeholder="select score..scorestruct..." />
-            <marker date="1464542972638" expanded="true" signature="4868:4989" placeholder="select cou_i..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="6199:6486" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="6586:6688" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="7225:7300" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="7804:7889" placeholder="select score..scorestruct..." />
-            <marker date="1464542972638" expanded="true" signature="8292:8430" placeholder="select * fro..cou_req..." />
-            <marker date="1464542972638" expanded="true" signature="9363:9399" placeholder="select * fro..course..." />
-            <marker date="1464542972638" expanded="true" signature="9787:9827" placeholder="select * fro..university..." />
+            <marker date="1464841256634" expanded="true" signature="813:838" placeholder="select * fro..requirement..." />
+            <marker date="1464841256634" expanded="true" signature="894:915" placeholder="select * fro..subject..." />
+            <marker date="1464841256634" expanded="true" signature="973:998" placeholder="select * fro..scorestruct..." />
+            <marker date="1464841256634" expanded="true" signature="1056:1081" placeholder="select * fro..groupcourse..." />
+            <marker date="1464841256634" expanded="true" signature="1139:1164" placeholder="select * fro..levelcourse..." />
+            <marker date="1464841256634" expanded="true" signature="3815:4102" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="4202:4304" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="4202:4334" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="4845:4920" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="5437:5522" placeholder="select score..scorestruct..." />
+            <marker date="1464841256634" expanded="true" signature="5876:5997" placeholder="select cou_i..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="7293:7602" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="7710:7749" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="7710:7834" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="8428:8503" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="9021:9106" placeholder="select score..scorestruct..." />
+            <marker date="1464841256634" expanded="true" signature="9509:9647" placeholder="select * fro..cou_req..." />
+            <marker date="1464841256634" expanded="true" signature="11161:11197" placeholder="select * fro..course..." />
+            <marker date="1464841256634" expanded="true" signature="11161:11208" placeholder="select * fro..course..." />
+            <marker date="1464841256634" expanded="true" signature="12595:12635" placeholder="select * fro..university..." />
           </folding>
         </state>
       </provider>

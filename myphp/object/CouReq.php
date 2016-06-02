@@ -24,6 +24,8 @@ class CouReq
         $arr_sub = array();
         $arr_sco = array();
         $arr_item = array();
+        $arr_level = array();
+        $arr_group = array();
 
         $sql = "select * from requirement";
         $query = mysql_query($sql);
@@ -31,6 +33,10 @@ class CouReq
         $query1 = mysql_query($sql1);
         $sql2 = "select * from scorestruct";
         $query2 = mysql_query($sql2);
+        $sql3 = "select * from groupcourse";
+        $query3 = mysql_query($sql3);
+        $sql4 = "select * from levelcourse";
+        $query4 = mysql_query($sql4);
         if(mysql_num_rows($query) > 0)
         {
             while($row = mysql_fetch_array($query,MYSQL_ASSOC)) {
@@ -68,7 +74,27 @@ class CouReq
                 );
             }
         }
-        array_push($arr_item,$arr_req,$arr_sub,$arr_sco);
+        if(mysql_num_rows($query3) > 0)
+        {
+            while($row3 = mysql_fetch_array($query3,MYSQL_ASSOC)){
+//                array_push($arr_group,$row3['group_name']);
+                $arr_group[] = array(
+                    'group_id' => $row3['group_id'],
+                    'group_name' => $row3['group_name'],
+                );
+            }
+        }
+        if(mysql_num_rows($query4) > 0)
+        {
+            while($row4 = mysql_fetch_array($query4,MYSQL_ASSOC)){
+//                array_push($arr_level,$row4['level_name']);
+                $arr_level[] = array(
+                    'level_id' => $row4['level_id'],
+                    'level_name' => $row4['level_name'],
+                );
+            }
+        }
+        array_push($arr_item,$arr_req,$arr_sub,$arr_sco,$arr_group,$arr_level);
         echo json_encode($arr_item,JSON_PRETTY_PRINT);
     }
     function SearchCourseID(){
@@ -93,16 +119,16 @@ class CouReq
                             }
                         }
                     }
-                }elseif($req->listreq->input_type == 4){
-                    foreach($req->listreq->listsub as $sub) {
-                        $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and overall <= {$sub->scoreEnglish->overall} ";
-                        $query = mysql_query($sql);
-                        if (mysql_num_rows($query) > 0) {
-                            while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
-                                array_push($this->arr_couidUni, $row['cou_id']);
-                            }
-                        }
-                    }
+//                }elseif($req->listreq->input_type == 4){
+//                    foreach($req->listreq->listsub as $sub) {
+//                        $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and overall <= {$sub->scoreEnglish->overall} ";
+//                        $query = mysql_query($sql);
+//                        if (mysql_num_rows($query) > 0) {
+//                            while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
+//                                array_push($this->arr_couidUni, $row['cou_id']);
+//                            }
+//                        }
+//                    }
                 } else{
                     foreach($req->listreq->listsub as $sub){
                         $sql = "select score_id from scorestruct where req_id = {$req->listreq->req_id} and point <= {$sub->score->point}";// select id of scorestruct where req_id and point < input point from html
@@ -117,9 +143,7 @@ class CouReq
                                 if(mysql_num_rows($query1) > 0)
                                 {
                                     while($row1 = mysql_fetch_array($query1,MYSQL_ASSOC)){
-
                                         array_push($this->arr_couidUni,$row1['cou_id']);
-
                                     }
                                 }
                             }
@@ -145,27 +169,31 @@ class CouReq
                 if ($req->listreq->input_type == 2) {
 
                     foreach ($req->listreq->listsub as $sub) {
-                        if($req->listreq->req_id == 7)
-                            $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} and writing <= {$sub->scoreEnglish->writing} and listening <= {$sub->scoreEnglish->listening} and reading <= {$sub->scoreEnglish->reading} and speaking <= {$sub->scoreEnglish->speaking}  ";
-                        else
-                            $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} ";
-                        $query = mysql_query($sql);
-                        if (mysql_num_rows($query) > 0) {
-                            while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
-                                array_push($this->arr_couidUni, $row['cou_id']);
+                        foreach($arr_couid as $couid)
+                        {
+                            if($req->listreq->req_id == 7)
+                                $sql = "select * from cou_req where cou_id = {$couid} and req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} and writing <= {$sub->scoreEnglish->writing} and listening <= {$sub->scoreEnglish->listening} and reading <= {$sub->scoreEnglish->reading} and speaking <= {$sub->scoreEnglish->speaking}  ";
+                            else
+                                $sql = "select * from cou_req where cou_id = {$couid} and req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} ";
+                            $query = mysql_query($sql);
+                            if (mysql_num_rows($query) > 0) {
+                                while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
+                                    array_push($this->arr_couidUni, $row['cou_id']);
+                                }
                             }
+
                         }
                     }
-                }elseif($req->listreq->input_type == 4){
-                    foreach($req->listreq->listsub as $sub) {
-                        $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and overall <= {$sub->scoreEnglish->overall} ";
-                        $query = mysql_query($sql);
-                        if (mysql_num_rows($query) > 0) {
-                            while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
-                                array_push($this->arr_couidUni, $row['cou_id']);
-                            }
-                        }
-                    }
+//                }elseif($req->listreq->input_type == 4){
+//                    foreach($req->listreq->listsub as $sub) {
+//                        $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and overall <= {$sub->scoreEnglish->overall} ";
+//                        $query = mysql_query($sql);
+//                        if (mysql_num_rows($query) > 0) {
+//                            while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
+//                                array_push($this->arr_couidUni, $row['cou_id']);
+//                            }
+//                        }
+//                    }
                 }else{
                     foreach ($req->listreq->listsub as $sub) {
                         $sql = "select score_id from scorestruct where req_id = {$req->listreq->req_id} and point <= {$sub->score->point}";// select id of scorestruct where req_id and point < input point from html
@@ -194,19 +222,65 @@ class CouReq
         }else
             echo"khong";
     }
+
+//    function QueryGetCourse($le,$gro,$arr_sco){
+//        $arr_u = array();
+//        foreach($arr_sco as $sco){
+//            if($sco['level_name'] == $le->level_name && $sco['group_name'] == $gro->group_name )
+//            {
+//                array_push($arr_u,$sco);
+//            }elseif($sco['level_name'] == $le->level_name || $sco['group_name'] == $gro->group_name){
+//
+//            }
+//        }
+//        return $arr_u;
+//    }
+
     function GetUniCourse(){
 
-        if(isset($_POST['data'])){
+        if($_POST['data'] != null){
+            $level = json_decode($_POST['level']);
+            $group = json_decode($_POST['group']);
             $arr_coUni = json_decode($_POST['data']);
+            $arr_course = array();
             foreach($arr_coUni as $couidUni){
                 $sql = "select * from course where cou_id = {$couidUni}";
                 $query = mysql_query($sql);
                 if(mysql_num_rows($query) > 0 ){
                     while($row = mysql_fetch_array($query,MYSQL_ASSOC)){
-                        array_push($this->arr_universiry,$row);
+                        array_push($arr_course,$row);
                     }
                 }
             }
+
+            if($level->level_id == 1 && $group->group_id != 1){
+
+                foreach($arr_course as $course){
+
+                    if($course['group_name'] == $group->group_name){
+                        array_push($this->arr_universiry,$course);
+
+                    }
+                }
+            }elseif($level->level_id != 1 && $group->group_id == 1){
+                foreach($arr_course as $course){
+                    if($course['level_name'] == $level->level_name){
+                        array_push($this->arr_universiry,$course);
+
+                    }
+                }
+            }elseif($level->level_id != 1 && $group->group_id != 1){
+                foreach($arr_course as $course){
+                    if($course['level_name'] == $level->level_name && $course['group_name'] == $group->group_name  ){
+                        array_push($this->arr_universiry,$course);
+
+                    }
+                }
+            }else{
+
+                $this->arr_universiry = $arr_course;
+            }
+
             foreach($this->arr_universiry as $key=>$universiry){
                 $sql1 = "select * from university where uni_id = {$universiry['uni_id']}";
                 $query1 = mysql_query($sql1);
@@ -217,8 +291,11 @@ class CouReq
                 }
             }
             echo json_encode($this->arr_universiry,JSON_PRETTY_PRINT);
+        }else{
+            echo "áaaaaaa";
         }
     }
+
     function close_connect(){
         mysql_close($this->__connect);
     }
