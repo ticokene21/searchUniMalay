@@ -10,6 +10,7 @@ class CouReq
 {
     public $arr_couidUni = array();
     public $arr_universiry = array();
+    public $arr_couid = array();
     public $__connect;
 
     function __construct()
@@ -18,6 +19,67 @@ class CouReq
         mysql_select_db("uni",$this->__connect ) or die("not exist Database");
         mysql_query("SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'",$this->__connect );
     }
+    function test($string)
+    {
+        if(strpos($string,"(")) {
+            $array = spliti("[(]", $string);
+
+            $arr1 = spliti("[,(). ]", $array[0]);
+            $arr2 = spliti("[,(). ]", $array[1]);
+            $b = array();
+            for ($i = 0; $i < count($arr2); $i++) {
+                $a = array($arr2[$i]);
+                for ($j = 0; $j < count($arr1); $j++) {
+                    if ($arr2[$i] != null && $arr1[$j] != null) {
+                        array_push($a, $arr1[$j]);
+                        sort($a);
+                    }
+                }
+                array_push($b,$a);
+            }
+            array_pop($b);
+        }
+        return $b;
+    }
+
+    function groupBy($arr) {
+        $out = array();
+        foreach($arr as $val){
+            $out[$val['cou_id']]['array_number'][] = $val['number'];
+            if(is_array($val['opera'][0])){
+                foreach($val['opera'] as $newVal)
+                    $out[$val['cou_id']]['array_opera'][] = $newVal;
+            }
+            else
+                $out[$val['cou_id']]['array_opera'][] = $val['opera'];
+
+            $out[$val['cou_id']]['array_opera'] = array_map("unserialize", array_unique(array_map("serialize", $out[$val['cou_id']]['array_opera'])));
+        }
+        return($out);
+    }
+
+    function comBare($arr,$arr_couid){
+        $arr = $this->groupBy($arr);
+        $out = array();
+        foreach($arr as $key=>$val){
+            if(in_array($key,$arr_couid)){
+                continue;
+            }
+            else{
+                foreach($val['array_opera'] as $opera_val){
+                    $combera = array_diff($opera_val,$val['array_number']);
+                    if($combera == null) {
+                        array_push($out, $key);
+                        break;
+                    }
+                }
+            }
+
+        }
+//        print_r($out);
+        return $out;
+    }
+
     function initdata(){
 
         $arr_req = array();
@@ -26,7 +88,6 @@ class CouReq
         $arr_item = array();
         $arr_level = array();
         $arr_group = array();
-
         $sql = "select * from requirement";
         $query = mysql_query($sql);
         $sql1 = "select * from subject";
@@ -109,13 +170,19 @@ class CouReq
                     foreach($req->listreq->listsub as $sub)
                     {
                         if($req->listreq->req_id == 7)
-                            $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} and writing <= {$sub->scoreEnglish->writing} and listening <= {$sub->scoreEnglish->listening} and reading <= {$sub->scoreEnglish->reading} and speaking <= {$sub->scoreEnglish->speaking}  ";
+                            $sql = "select cou_id,operater,number,andwith from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} and writing <= {$sub->scoreEnglish->writing} and listening <= {$sub->scoreEnglish->listening} and reading <= {$sub->scoreEnglish->reading} and speaking <= {$sub->scoreEnglish->speaking}  ";
                         else
-                            $sql = "select * from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} ";
+                            $sql = "select cou_id,operater,number,andwith from cou_req where req_id ={$req->listreq->req_id} and sub_id= {$sub->sub_id} and overall <= {$sub->scoreEnglish->overall} ";
                         $query = mysql_query($sql);
                         if(mysql_num_rows($query) > 0) {
                             while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
-                                array_push($this->arr_couidUni,$row['cou_id']);
+                                if($row['operater'] == 1)
+                                {
+                                    $str = $row['number'].",".$row['andwith'];
+                                    $row['opera'] = $this->test($str);
+                                    array_push($this->arr_couidUni,$row);
+                                }else
+                                    array_push($this->arr_couid,$row['cou_id']);
                             }
                         }
                     }
@@ -138,12 +205,19 @@ class CouReq
                         {
                             while($row = mysql_fetch_array($query,MYSQL_ASSOC)){
 
-                                $sql1 ="select cou_id from cou_req where req_id = {$req->listreq->req_id} or req_id = 0 and sub_id={$sub->sub_id} and score_id = {$row['score_id']}";
+                                $sql1 ="select cou_id,operater,number,andwith from cou_req where req_id = {$req->listreq->req_id} and sub_id={$sub->sub_id} or sub_id = 0 and score_id = {$row['score_id']}";
+ //                               print_r($sql1);
                                 $query1 = mysql_query($sql1);
                                 if(mysql_num_rows($query1) > 0)
                                 {
                                     while($row1 = mysql_fetch_array($query1,MYSQL_ASSOC)){
-                                        array_push($this->arr_couidUni,$row1['cou_id']);
+                                        if($row1['operater'] == 1)
+                                        {
+                                            $str = $row1['number'].",".$row1['andwith'];
+                                            $row1['opera'] = $this->test($str);
+                                            array_push($this->arr_couidUni,$row1);
+                                        }else
+                                            array_push($this->arr_couid,$row1['cou_id']);
                                     }
                                 }
                             }
@@ -151,17 +225,24 @@ class CouReq
                     }
                 }
             }
+            $this->arr_couidUni = array_map("unserialize", array_unique(array_map("serialize", $this->arr_couidUni)));
+            $item_couid = $this->comBare($this->arr_couidUni,$this->arr_couid);
+//              print_r($item_couid);
+//            print_r($this->arr_couid);
+            if($item_couid != null)
+                $this->arr_couid = array_merge($this->arr_couid,$item_couid);
 
-            $this->arr_couidUni = array_unique($this->arr_couidUni);
-            print_r(json_encode($this->arr_couidUni));
+            print_r(json_encode($this->arr_couid));
+//            $this->arr_couid = array_unique($this->arr_couid);
+
         }else
             echo"khong";
     }
     function UpdateCourseID(){
         if(isset($_POST['data'])){
 
-            $arr_couid = array();
-            $arr_val = array();
+//            $arr_couid = array();
+//            $arr_val = array();
 
             $arr_val = json_decode($_POST['data']);
             $arr_couid= json_decode($_POST['arr_result']);
