@@ -21,11 +21,11 @@ class CouReq
     }
     function test($string)
     {
-        if(strpos($string,"(")) {
-            $array = spliti("[(]", $string);
+        if(strpos($string,"<")) {
+            $array = spliti("[<]", $string);
 
-            $arr1 = spliti("[,(). ]", $array[0]);
-            $arr2 = spliti("[,(). ]", $array[1]);
+            $arr1 = spliti("[,<>. ]", $array[0]);
+            $arr2 = spliti("[,<>. ]", $array[1]);
             $b = array();
             for ($i = 0; $i < count($arr2); $i++) {
                 $a = array($arr2[$i]);
@@ -205,8 +205,8 @@ class CouReq
                         {
                             while($row = mysql_fetch_array($query,MYSQL_ASSOC)){
 
-                                $sql1 ="select cou_id,operater,number,andwith from cou_req where req_id = {$req->listreq->req_id} and sub_id={$sub->sub_id} or sub_id = 0 and score_id = {$row['score_id']}";
- //                               print_r($sql1);
+                                $sql1 ="select cou_id,operater,number,andwith from cou_req where req_id = {$req->listreq->req_id} and sub_id in (0,{$sub->sub_id})  and score_id = {$row['score_id']}";
+//                                print_r($sql1);
                                 $query1 = mysql_query($sql1);
                                 if(mysql_num_rows($query1) > 0)
                                 {
@@ -231,9 +231,9 @@ class CouReq
 //            print_r($this->arr_couid);
             if($item_couid != null)
                 $this->arr_couid = array_merge($this->arr_couid,$item_couid);
-
+            $this->arr_couid = array_unique($this->arr_couid);
             print_r(json_encode($this->arr_couid));
-//            $this->arr_couid = array_unique($this->arr_couid);
+
 
         }else
             echo"khong";
@@ -284,7 +284,7 @@ class CouReq
                             while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
 
                                 foreach ($arr_couid as $couid) {
-                                    $sql1 = "select * from cou_req where cou_id = {$couid} and req_id = {$req->listreq->req_id} and sub_id={$sub->sub_id} or sub_id = 0 and score_id = {$row['score_id']}";
+                                    $sql1 = "select * from cou_req where cou_id = {$couid} and req_id = {$req->listreq->req_id} and sub_id in (0,{$sub->sub_id}) and score_id = {$row['score_id']}";
 
                                     $query1 = mysql_query($sql1);
                                     if (mysql_num_rows($query1) > 0) {
